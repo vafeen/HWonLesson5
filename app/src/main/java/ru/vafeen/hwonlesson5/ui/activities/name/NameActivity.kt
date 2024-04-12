@@ -1,8 +1,11 @@
 package ru.vafeen.hwonlesson5.ui.activities.name
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.vafeen.hwonlesson5.databinding.ActivityNameBinding
+
 
 class NameActivity : AppCompatActivity() {
 
@@ -24,6 +27,22 @@ class NameActivity : AppCompatActivity() {
     }
 
     private fun content() {
+        binding.apply {
+            backButton.visibility = View.VISIBLE
+            exitButton.visibility = View.VISIBLE
+            forwardButton.visibility = View.VISIBLE
 
+            backButton.setOnClickListener {
+                finish()
+            }
+
+            exitButton.setOnClickListener {
+                this@NameActivity.finishAffinity()
+            }
+
+            forwardButton.setOnClickListener {
+//                val intent = Intent(this, )
+            }
+        }
     }
 }
