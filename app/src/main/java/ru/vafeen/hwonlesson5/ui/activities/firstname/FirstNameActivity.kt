@@ -17,7 +17,6 @@ class FirstNameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = ActivityFirstnameBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
@@ -30,8 +29,11 @@ class FirstNameActivity : AppCompatActivity() {
 
         binding.apply {
             backButton.visibility = View.VISIBLE
+
             exitButton.visibility = View.VISIBLE
+
             forwardButton.visibility = View.VISIBLE
+
             editFirstName.visibility = View.VISIBLE
 
             backButton.setOnClickListener {
@@ -43,7 +45,7 @@ class FirstNameActivity : AppCompatActivity() {
             }
 
             forwardButton.setOnClickListener {
-                logExecutor(mes="[firstNameAct] firstname = ${editFirstName.text}")
+                logExecutor(mes = "[firstNameAct] firstname = ${editFirstName.text}")
 
                 newIntent.apply {
                     putExtra(PutGet.FirstName.value, editFirstName.text.toString())

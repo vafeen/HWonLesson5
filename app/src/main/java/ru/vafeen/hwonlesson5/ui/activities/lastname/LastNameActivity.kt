@@ -23,6 +23,7 @@ class LastNameActivity : AppCompatActivity() {
 
         intent.apply {
             firstNameData = getStringExtra(PutGet.FirstName.value)
+
             logExecutor(mes = "[lstNmAct] firstNameData=${firstNameData}")
         }
 
@@ -53,6 +54,7 @@ class LastNameActivity : AppCompatActivity() {
 
                 newIntent.apply {
                     putExtra(PutGet.FirstName.value, firstNameData)
+
                     putExtra(PutGet.LastName.value, editLastName.text.toString())
                 }
 

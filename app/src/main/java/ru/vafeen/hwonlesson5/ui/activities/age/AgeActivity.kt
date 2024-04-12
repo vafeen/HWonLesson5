@@ -12,8 +12,8 @@ import ru.vafeen.hwonlesson5.values.PutGet
 class AgeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAgeBinding
 
-
     private var firstNameData: String? = null
+
     private var lastNameData: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +27,9 @@ class AgeActivity : AppCompatActivity() {
             firstNameData = getStringExtra(PutGet.FirstName.value)
             lastNameData = getStringExtra(PutGet.LastName.value)
         }
+
         logExecutor(mes = "{AGE}lastName data = ${lastNameData}")
+
         content()
     }
 
@@ -42,6 +44,7 @@ class AgeActivity : AppCompatActivity() {
                 ageTextData.text =
                     buildString {
                         append("firstName = ${firstNameData.orEmpty()} ")
+
                         append(
                             if (lastNameData != null) {
                                 "\n lastName = ${lastNameData.orEmpty()}"
@@ -67,10 +70,14 @@ class AgeActivity : AppCompatActivity() {
             confirmButton.setOnClickListener {
                 intent.apply {
                     addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+
                     putExtra(PutGet.FirstName.value, firstNameData)
+
                     putExtra(PutGet.LastName.value, lastNameData)
+
                     putExtra(PutGet.IsRegistered.value, true)
                 }
+
                 startActivity(intent)
             }
         }

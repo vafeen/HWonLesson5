@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 
     private var firstname: String? = null
+
     private var lastname: String? = null
 
     private var isRegistered = false
