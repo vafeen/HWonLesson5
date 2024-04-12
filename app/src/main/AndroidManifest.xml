@@ -24,14 +24,15 @@
 
         <activity
             android:name=".ui.activities.firstname.FirstNameActivity"
-            android:exported="false">
-
-        </activity>
+            android:exported="false"/>
 
         <activity
             android:name=".ui.activities.lastname.LastNameActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
+        <activity
+            android:name=".ui.activities.age.AgeActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
