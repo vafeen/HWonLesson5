@@ -1,14 +1,11 @@
-package ru.vafeen.hwonlesson5
+package ru.vafeen.hwonlesson5.ui.activities.main
 
-import android.opengl.Visibility
+import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import ru.vafeen.hwonlesson5.databinding.ActivityMainBinding
+import ru.vafeen.hwonlesson5.ui.activities.name.NameActivity
 import ru.vafeen.hwonlesson5.values.PutGet
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         savedInstanceState.apply {
             if (this != null) {
-                isRegistered = getBoolean(PutGet.isRegistered.value)
+                isRegistered = getBoolean(PutGet.IsRegistered.value)
             }
         }
 
@@ -28,8 +25,25 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
-        binding.greeting.text = "Hello Android!"
-        binding.greeting.visibility = View.GONE
+        content()
+    }
+
+    private fun content() {
+        if (!isRegistered) {
+            binding.greeting.visibility = View.GONE
+
+            binding.beginSigningUp.visibility = View.VISIBLE
+        } else {
+            binding.greeting.text = "Вы успешно зарегистрированы!"
+
+            binding.beginSigningUp.visibility = View.GONE
+        }
+
+        binding.beginSigningUp.setOnClickListener {
+            val intent = Intent(this, NameActivity::class.java)
+
+            startActivity(intent)
+        }
     }
 
 
@@ -37,14 +51,14 @@ class MainActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
 
         outState.apply {
-            putBoolean(PutGet.isRegistered.value, isRegistered)
+            putBoolean(PutGet.IsRegistered.value, isRegistered)
         }
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         savedInstanceState.apply {
-            isRegistered = getBoolean(PutGet.isRegistered.value)
+            isRegistered = getBoolean(PutGet.IsRegistered.value)
         }
     }
 }
