@@ -22,10 +22,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activities.firstname.FirstName"
+        <activity
+            android:name=".ui.activities.firstname.FirstNameActivity"
             android:exported="false">
 
         </activity>
+
+        <activity
+            android:name=".ui.activities.lastname.LastNameActivity"
+            android:exported="false"/>
 
     </application>
 
