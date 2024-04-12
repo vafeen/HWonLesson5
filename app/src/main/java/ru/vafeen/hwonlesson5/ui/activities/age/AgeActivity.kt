@@ -65,7 +65,12 @@ class AgeActivity : AppCompatActivity() {
             }
 
             confirmButton.setOnClickListener {
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                intent.apply {
+                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                    putExtra(PutGet.FirstName.value, firstNameData)
+                    putExtra(PutGet.LastName.value, lastNameData)
+                    putExtra(PutGet.IsRegistered.value, true)
+                }
                 startActivity(intent)
             }
         }
