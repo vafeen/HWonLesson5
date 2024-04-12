@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.vafeen.hwonlesson5.databinding.ActivityLastnameBinding
+import ru.vafeen.hwonlesson5.noui.logs.logExecutor
 import ru.vafeen.hwonlesson5.values.PutGet
 
 class LastNameActivity : AppCompatActivity() {
@@ -17,24 +18,25 @@ class LastNameActivity : AppCompatActivity() {
 
         binding = ActivityLastnameBinding.inflate(layoutInflater)
 
+        setContentView(binding.root)
+
         intent.apply {
             firstNameData = getStringExtra(PutGet.FirstName.value)
+            logExecutor(mes = "[lstNmAct] firstNameData=${firstNameData}")
         }
+
 
         content()
     }
 
-    fun content() {
+    private fun content() {
 //        val intent = Intent(this,)
 
         binding.apply {
 
-            if (firstNameData != null) {
+            textData.text = "firstname = $firstNameData"
 
-                textData.text = "firstname = $firstNameData"
-
-                textData.visibility = View.VISIBLE
-            }
+            textData.visibility = View.VISIBLE
 
             editLastName.visibility = View.VISIBLE
 
