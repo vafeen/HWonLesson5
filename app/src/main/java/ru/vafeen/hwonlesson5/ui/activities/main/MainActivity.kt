@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.vafeen.hwonlesson5.databinding.ActivityMainBinding
-import ru.vafeen.hwonlesson5.ui.activities.name.NameActivity
+import ru.vafeen.hwonlesson5.ui.activities.firstname.FirstName
 import ru.vafeen.hwonlesson5.values.PutGet
 
 class MainActivity : AppCompatActivity() {
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun content() {
-        val intent = Intent(this, NameActivity::class.java)
+        val intent = Intent(this, FirstName::class.java)
 
         binding.apply {
 

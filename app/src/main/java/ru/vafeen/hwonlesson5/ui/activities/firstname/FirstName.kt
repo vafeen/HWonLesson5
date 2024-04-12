@@ -1,15 +1,14 @@
-package ru.vafeen.hwonlesson5.ui.activities.name
+package ru.vafeen.hwonlesson5.ui.activities.firstname
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import ru.vafeen.hwonlesson5.databinding.ActivityNameBinding
+import ru.vafeen.hwonlesson5.databinding.ActivityFirstnameBinding
 
 
-class NameActivity : AppCompatActivity() {
+class FirstName : AppCompatActivity() {
 
-    private lateinit var binding: ActivityNameBinding
+    private lateinit var binding: ActivityFirstnameBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +18,7 @@ class NameActivity : AppCompatActivity() {
             }
         }
 
-        binding = ActivityNameBinding.inflate(layoutInflater)
+        binding = ActivityFirstnameBinding.inflate(layoutInflater)
 
         setContentView(binding.root)
 
@@ -37,7 +36,7 @@ class NameActivity : AppCompatActivity() {
             }
 
             exitButton.setOnClickListener {
-                this@NameActivity.finishAffinity()
+                this@FirstName.finishAffinity()
             }
 
             forwardButton.setOnClickListener {
