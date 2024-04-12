@@ -12,13 +12,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private var firstname: String? = null
+    private var lastname: String? = null
+
     private var isRegistered = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        savedInstanceState.apply {
-            if (this != null) {
-                isRegistered = getBoolean(PutGet.IsRegistered.value)
-            }
+
+        intent.apply {
+                isRegistered = getBooleanExtra(PutGet.IsRegistered.value, false)
+
+                firstname = getStringExtra(PutGet.FirstName.value)
+
+                lastname = getStringExtra(PutGet.LastName.value)
         }
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,21 +35,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun content() {
-        if (!isRegistered) {
-            binding.greeting.visibility = View.GONE
+        val intent = Intent(this, NameActivity::class.java)
 
-            binding.beginSigningUp.visibility = View.VISIBLE
-        } else {
-            binding.greeting.text = "Вы успешно зарегистрированы!"
+        binding.apply {
 
-            binding.beginSigningUp.visibility = View.GONE
+            buttonExit.visibility = View.VISIBLE
+
+            if (!isRegistered) {
+
+                greeting.visibility = View.GONE
+
+                buttonBeginSigningUp.visibility = View.VISIBLE
+
+            } else {
+                greeting.text = "Добро пожаловать, $firstname $lastname"
+
+                buttonBeginSigningUp.visibility = View.GONE
+            }
+
+            binding.buttonBeginSigningUp.setOnClickListener {
+                startActivity(intent)
+            }
+
+            binding.buttonExit.setOnClickListener {
+                finish()
+            }
         }
 
-        binding.beginSigningUp.setOnClickListener {
-            val intent = Intent(this, NameActivity::class.java)
-
-            startActivity(intent)
-        }
     }
 
 
@@ -57,8 +75,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
+
         savedInstanceState.apply {
             isRegistered = getBoolean(PutGet.IsRegistered.value)
+
+            firstname = getString(PutGet.FirstName.value)
+
+            lastname = getString(PutGet.LastName.value)
         }
     }
 }

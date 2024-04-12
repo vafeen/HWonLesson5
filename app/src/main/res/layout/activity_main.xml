@@ -5,24 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activities.main.MainActivity">
 
     <TextView
         android:id="@+id/greeting"
-        android:layout_width="117dp"
-        android:layout_height="68dp"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
         android:gravity="center"
         android:text="asd"
-
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintVertical_bias="0.288"
+        app:layout_constraintWidth_percent="0.75" />
 
     <Button
-        android:id="@+id/beginSigningUp"
+        android:id="@+id/buttonBeginSigningUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="begin signing up"
@@ -31,6 +31,17 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/greeting"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintVertical_bias="0.3" />
 
+    <Button
+        android:id="@+id/buttonExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="exit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBeginSigningUp"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
