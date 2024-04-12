@@ -24,7 +24,7 @@
 
         <activity
             android:name=".ui.activities.firstname.FirstNameActivity"
-            android:exported="false"/>
+            android:exported="false" />
 
         <activity
             android:name=".ui.activities.lastname.LastNameActivity"
