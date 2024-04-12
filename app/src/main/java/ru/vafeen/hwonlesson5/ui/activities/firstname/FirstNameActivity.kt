@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.vafeen.hwonlesson5.databinding.ActivityFirstnameBinding
+import ru.vafeen.hwonlesson5.noui.logs.logExecutor
 import ru.vafeen.hwonlesson5.ui.activities.lastname.LastNameActivity
 import ru.vafeen.hwonlesson5.values.PutGet
 
@@ -25,7 +26,7 @@ class FirstNameActivity : AppCompatActivity() {
     }
 
     private fun content() {
-        val intent = Intent(this, LastNameActivity::class.java)
+        val newIntent = Intent(this, LastNameActivity::class.java)
 
         binding.apply {
             backButton.visibility = View.VISIBLE
@@ -42,11 +43,13 @@ class FirstNameActivity : AppCompatActivity() {
             }
 
             forwardButton.setOnClickListener {
-                intent.apply {
-                    putExtra(PutGet.FirstName.value, editFirstName.text)
+                logExecutor(mes="[firstNameAct] firstname = ${editFirstName.text}")
+
+                newIntent.apply {
+                    putExtra(PutGet.FirstName.value, editFirstName.text.toString())
                 }
 
-                startActivity(intent)
+                startActivity(newIntent)
             }
         }
     }
