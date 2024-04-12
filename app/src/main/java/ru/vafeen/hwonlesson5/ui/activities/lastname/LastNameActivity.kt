@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import ru.vafeen.hwonlesson5.databinding.ActivityLastnameBinding
 import ru.vafeen.hwonlesson5.noui.logs.logExecutor
+import ru.vafeen.hwonlesson5.ui.activities.age.AgeActivity
 import ru.vafeen.hwonlesson5.values.PutGet
 
 class LastNameActivity : AppCompatActivity() {
@@ -30,7 +31,7 @@ class LastNameActivity : AppCompatActivity() {
     }
 
     private fun content() {
-//        val intent = Intent(this,)
+        val newIntent = Intent(this, AgeActivity::class.java)
 
         binding.apply {
 
@@ -50,12 +51,12 @@ class LastNameActivity : AppCompatActivity() {
 
             forwardButton.setOnClickListener {
 
-                intent.apply {
+                newIntent.apply {
                     putExtra(PutGet.FirstName.value, firstNameData)
-                    putExtra(PutGet.LastName.value, editLastName.text)
+                    putExtra(PutGet.LastName.value, editLastName.text.toString())
                 }
 
-                startActivity(intent)
+                startActivity(newIntent)
             }
         }
     }
