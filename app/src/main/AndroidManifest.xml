@@ -24,15 +24,18 @@
 
         <activity
             android:name=".ui.activities.firstname.FirstNameActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:taskAffinity="@string/affinity" />
 
         <activity
             android:name=".ui.activities.lastname.LastNameActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:taskAffinity="@string/affinity" />
 
         <activity
             android:name=".ui.activities.age.AgeActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:taskAffinity="@string/affinity" />
     </application>
 
 </manifest>
