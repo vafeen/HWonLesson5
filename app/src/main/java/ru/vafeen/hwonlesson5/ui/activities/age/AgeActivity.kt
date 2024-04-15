@@ -47,7 +47,7 @@ class AgeActivity : AppCompatActivity() {
 
                         append(
                             if (lastNameData != null) {
-                                "\n lastName = ${lastNameData.orEmpty()}"
+                                "\nlastName = ${lastNameData.orEmpty()}"
                             } else {
                                 ""
                             }
@@ -77,6 +77,9 @@ class AgeActivity : AppCompatActivity() {
 
                     putExtra(PutGet.IsRegistered.value, true)
                 }
+                this@AgeActivity.finishAffinity()
+
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
 
                 startActivity(intent)
             }
