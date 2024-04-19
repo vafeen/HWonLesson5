@@ -69,8 +69,6 @@ class AgeActivity : AppCompatActivity() {
 
             confirmButton.setOnClickListener {
                 intent.apply {
-                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-
                     putExtra(PutGet.FirstName.value, firstNameData)
 
                     putExtra(PutGet.LastName.value, lastNameData)
